@@ -2,10 +2,17 @@
 
 import { useState } from "react";
 
-const projects = [
-  { n: "01", category: "AI PRODUCT LAUNCH", title: "Make the invisible visible.", description: "A concept launch film for an AI product.", visual: "project-ai", format: "30 SEC · 16:9 / 9:16" },
-  { n: "02", category: "SAAS PRODUCT DEMO", title: "From workflow to wow.", description: "A UI-led motion concept for a modern software platform.", visual: "project-ui", format: "45 SEC · PRODUCT STORY" },
-  { n: "03", category: "PAID SOCIAL CREATIVE", title: "Stop the scroll.", description: "A performance creative concept built around one clear product benefit.", visual: "project-social", format: "15 SEC · VERTICAL" },
+const promoFilms = [
+  { n: "01", title: "Wellio", category: "HEALTHTECH · SAAS EXPLAINER", src: "/videos/promo-01.mp4" },
+  { n: "02", title: "Elyxir", category: "SAAS · PRODUCT FILM", src: "/videos/promo-02.mp4" },
+  { n: "03", title: "TORQ", category: "TECH · MOTION EXPLAINER", src: "/videos/promo-03.mp4" },
+  { n: "04", title: "Product story", category: "PROMO · PRODUCT FILM", src: "/videos/promo-04.mp4" },
+];
+
+const adCreatives = [
+  { n: "01", title: "Lifestyle UGC", category: "VERTICAL · SOCIAL CREATIVE", src: "/videos/ad-01.mp4" },
+  { n: "02", title: "Everyday moments", category: "VERTICAL · SOCIAL CREATIVE", src: "/videos/ad-02.mp4" },
+  { n: "03", title: "Creator-style ad", category: "VERTICAL · SOCIAL CREATIVE", src: "/videos/ad-03.mp4" },
 ];
 
 const offers = [
@@ -32,14 +39,14 @@ export default function Home() {
           <span className="availability"><i /> TAKING ON SELECT PROJECTS</span>
           <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? "CLOSE −" : "MENU +"}</button>
         </div>
-        {menuOpen && <div className="menu-panel"><a href="#work" onClick={() => setMenuOpen(false)}>Our work ↗</a><a href="#services" onClick={() => setMenuOpen(false)}>Services ↗</a><a href="#offers" onClick={() => setMenuOpen(false)}>Video formats ↗</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact ↗</a></div>}
+        {menuOpen && <div className="menu-panel"><a href="#work" onClick={() => setMenuOpen(false)}>Promo & product films ↗</a><a href="#ad-creatives" onClick={() => setMenuOpen(false)}>Ad creatives ↗</a><a href="#services" onClick={() => setMenuOpen(false)}>Services ↗</a><a href="#offers" onClick={() => setMenuOpen(false)}>Video formats ↗</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact ↗</a></div>}
       </nav>
 
       <section className="hero">
         <div className="hero-kicker"><span>MOTION DESIGN FOR SOFTWARE</span><span>INDIA · WORKING WORLDWIDE</span></div>
         <h1>Make your<br />product <em>move.</em></h1>
         <div className="hero-bottom">
-          <p>Product launch films, SaaS demos and paid social creatives for AI and tech brands.</p>
+          <p>Promo films, SaaS explainers and scroll-stopping ad creatives for tech brands.</p>
           <a className="hero-cta" href="#contact">TELL US WHAT YOU’RE BUILDING <span>↗</span></a>
         </div>
         <div className="hero-art" aria-label="Abstract motion design study showing animated product interface elements">
@@ -61,19 +68,31 @@ export default function Home() {
       </section>
 
       <section id="work" className="work-section">
-        <div className="section-head"><div><div className="section-index">01 / SELECTED CONCEPTS</div><h2>Show the product.<br /><em>Tell the story.</em></h2></div><span className="small-note">SPECULATIVE MOTION STUDIES<br />NOT CLIENT CASE STUDIES</span></div>
-        <div className="work-list">
-          {projects.map((item) => <article className="work-item" key={item.n}>
-            <div className={`work-visual ${item.visual}`}>
-              <span className="visual-number">{item.n} / PURPLE ORANGE</span>
-              {item.visual === "project-ai" && <div className="project-ai-art"><div className="ai-orbit" /><div className="ai-chip">AI<span>✳</span></div><div className="project-copy">THINK<br /><em>BEYOND.</em></div><div className="project-foot">INTELLIGENCE, MADE VISIBLE</div></div>}
-              {item.visual === "project-ui" && <div className="project-ui-art"><div className="project-ui-side">⌘<br />◫<br />◉<br />⌁</div><div className="project-ui-content"><small>YOUR WORKSPACE</small><h3>Everything<br />in sync.</h3><div className="mini-cards"><i /><i /><i /></div><div className="mini-chart" /></div></div>}
-              {item.visual === "project-social" && <div className="project-social-art"><div className="social-big">LESS<br /><em>NOISE.</em><br />MORE<br />SIGNAL.</div><div className="social-orb" /><span className="social-tag">A BETTER WAY TO WORK</span></div>}
+        <div className="section-head"><div><div className="section-index">01 / PROMO & PRODUCT FILMS</div><h2>Make the product<br /><em>impossible to ignore.</em></h2></div><span className="small-note">PRODUCT LAUNCHES · SAAS EXPLAINERS<br />MOTION-LED PROMOS</span></div>
+        <div className="film-grid">
+          {promoFilms.map((film) => <article className="film-card film-card-wide" key={film.n}>
+            <div className="film-frame film-frame-wide">
+              <video src={film.src} controls playsInline preload="metadata" aria-label={film.title} />
+              <span className="film-index">{film.n} / PURPLE ORANGE</span>
             </div>
-            <div className="work-meta"><div><span className="work-type">{item.category}</span><h3>{item.title}</h3><p>{item.description}</p></div><span className="work-tag">{item.format}</span><span className="work-arrow">↗</span></div>
+            <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
           </article>)}
         </div>
-        <p className="work-disclaimer">These are original concept studies to demonstrate creative direction and motion style. We do not present them as commissioned client work.</p>
+        <p className="work-disclaimer">Promo and product films created to make complex products easier to understand and remember.</p>
+      </section>
+
+      <section id="ad-creatives" className="ad-creatives-section">
+        <div className="section-head"><div><div className="section-index">02 / AD CREATIVES</div><h2>Built for the<br /><em>scroll.</em></h2></div><span className="small-note">UGC-STYLE ADS · SHORT-FORM<br />VERTICAL CREATIVE</span></div>
+        <div className="ad-grid">
+          {adCreatives.map((film) => <article className="film-card ad-card" key={film.n}>
+            <div className="film-frame film-frame-vertical">
+              <video src={film.src} controls playsInline preload="metadata" aria-label={film.title} />
+              <span className="film-index">{film.n} / PURPLE ORANGE</span>
+            </div>
+            <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
+          </article>)}
+        </div>
+        <p className="work-disclaimer">Short-form creative made for social feeds, paid campaigns and product discovery.</p>
       </section>
 
       <section id="services" className="services">
@@ -94,18 +113,18 @@ export default function Home() {
       </section>
 
       <section className="process">
-        <div className="section-index">04 / HOW IT WORKS</div>
+        <div className="section-index">05 / HOW IT WORKS</div>
         <div className="process-row"><h2>Clear process.<br /><em>Careful craft.</em></h2><p>You bring the product and the goal. We turn it into a focused story, then build the motion around what your audience needs to understand.</p></div>
         <div className="process-steps"><div><span>01</span><h3>Brief & strategy</h3><p>We learn the product, audience, key benefit and where the video will be used.</p></div><div><span>02</span><h3>Script & storyboard</h3><p>We agree on the story and visual direction before animation begins.</p></div><div><span>03</span><h3>Animate & deliver</h3><p>We craft the motion, sound and final exports for your chosen platforms.</p></div></div>
       </section>
 
       <section className="faq-section">
-        <div className="section-index">05 / GOOD QUESTIONS</div>
+        <div className="section-index">06 / GOOD QUESTIONS</div>
         <div className="faq-layout"><h2>Before we<br /><em>get moving.</em></h2><div className="faq-list">{faqs.map((faq, i) => <div className="faq-item" key={faq.q}><button onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i}><span>{faq.q}</span><b>{openFaq === i ? "−" : "+"}</b></button>{openFaq === i && <p>{faq.a}</p>}</div>)}</div></div>
       </section>
 
       <footer id="contact" className="footer">
-        <div className="section-index">06 / START A PROJECT</div>
+        <div className="section-index">07 / START A PROJECT</div>
         <div className="footer-main"><div><p className="footer-kicker">HAVE A PRODUCT WORTH SHOWING?</p><h2>Let’s make it<br /><em>click.</em></h2><p className="footer-copy">Tell us what you’re launching, what needs explaining, or what your next ad needs to do.</p></div><a className="contact-link" href="mailto:hello@purpleorange.studio?subject=Project%20enquiry">START A PROJECT <span>↗</span></a></div>
         <div className="footer-bottom"><a className="wordmark" href="#">purple<span className="dot">.</span>orange<span className="reg">®</span></a><span>MOTION FOR SOFTWARE & TECH.</span><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">INSTAGRAM ↗</a><span>© PURPLE ORANGE 2026</span></div>
       </footer>
