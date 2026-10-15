@@ -31,11 +31,12 @@ export default function Home() {
         <div className="nav-links">
           <a href="#services">Services</a>
           <a href="#work">Our work</a>
+          <a href="#vertical-ads">Vertical ads</a>
           <a href="#contact">Contact</a>
         </div>
         <a className="nav-cta" href="mailto:hello@purpleorange.studio?subject=Project%20enquiry">Book a call <span>↗</span></a>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen} aria-label="Toggle navigation">{menuOpen ? "CLOSE −" : "MENU +"}</button>
-        {menuOpen && <div className="menu-panel"><a href="#services" onClick={() => setMenuOpen(false)}>Services ↗</a><a href="#work" onClick={() => setMenuOpen(false)}>Our work ↗</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact ↗</a></div>}
+        {menuOpen && <div className="menu-panel"><a href="#services" onClick={() => setMenuOpen(false)}>Services ↗</a><a href="#work" onClick={() => setMenuOpen(false)}>Our work ↗</a><a href="#vertical-ads" onClick={() => setMenuOpen(false)}>Vertical ads ↗</a><a href="#contact" onClick={() => setMenuOpen(false)}>Contact ↗</a></div>}
       </nav>
 
       <section id="top" className="hero">
@@ -84,18 +85,22 @@ export default function Home() {
             <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
           </article>)}
         </div>
-        <div className="gallery-heading second"><span>02 — AD CREATIVES</span><span>VERTICAL / 9:16</span></div>
+      </section>
+
+      <section id="vertical-ads" className="ad-creatives-section">
+        <div className="section-head"><div><div className="section-index">03 / VERTICAL SOCIAL ADS</div><h2>Built for the<br /><em>vertical screen.</em></h2></div><p className="small-note">9:16 SOCIAL VIDEO<br />REELS · SHORTS · PAID ADS</p></div>
+        <div className="gallery-heading"><span>VERTICAL AD CREATIVES</span><span>9:16 / MOBILE FIRST</span></div>
         <div className="ad-grid">
           {adCreatives.map((film) => <article className="film-card ad-card" key={film.n}>
             <div className="film-frame film-frame-vertical"><video src={film.src} controls playsInline preload="metadata" aria-label={film.title} /><span className="film-index">{film.n}</span></div>
             <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
           </article>)}
         </div>
-        <p className="work-disclaimer">A selection of motion and creative work. Video playback depends on the portfolio assets being uploaded to the site.</p>
+        <p className="work-disclaimer">Vertical creatives designed for mobile-first campaigns. Video playback depends on the portfolio assets being uploaded to the site.</p>
       </section>
 
       <section className="booking-section">
-        <div className="section-index">03 / LET’S WORK TOGETHER</div>
+        <div className="section-index">04 / LET’S WORK TOGETHER</div>
         <div className="booking-content"><div><h2>Have a product<br />worth <em>showing?</em></h2><p>Tell us what you’re building, what needs explaining, and where the video will live. We’ll help you find the right format.</p></div><a className="booking-link" href="mailto:hello@purpleorange.studio?subject=Project%20enquiry">START A PROJECT <span>↗</span></a></div>
         <div className="booking-bottom"><span>NEW PROJECTS · SELECTIVE INTAKE</span><span>RESPONSE VIA EMAIL</span></div>
       </section>
