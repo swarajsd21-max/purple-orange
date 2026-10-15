@@ -64,6 +64,18 @@ export default function Home() {
         <div><span>AI PRODUCTS</span><i>✳</i><span>SAAS PLATFORMS</span><i>✳</i><span>DEVELOPER TOOLS</span><i>✳</i><span>EMERGING TECH</span></div>
       </section>
 
+      <section id="vertical-ads" className="ad-creatives-section">
+        <div className="section-head"><div><div className="section-index">03 / VERTICAL SOCIAL ADS</div><h2>Built for the<br /><em>vertical screen.</em></h2></div><p className="small-note">9:16 SOCIAL VIDEO<br />REELS · SHORTS · PAID ADS</p></div>
+        <div className="gallery-heading"><span>VERTICAL AD CREATIVES</span><span>9:16 / MOBILE FIRST</span></div>
+        <div className="ad-grid">
+          {adCreatives.map((film) => <article className="film-card ad-card" key={film.n}>
+            <div className="film-frame film-frame-vertical"><video src={film.src} controls autoPlay muted loop playsInline preload="auto" aria-label={film.title} /><span className="film-index">{film.n}</span></div>
+            <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
+          </article>)}
+        </div>
+        <p className="work-disclaimer">Vertical creatives designed for mobile-first campaigns. Video playback depends on the portfolio assets being uploaded to the site.</p>
+      </section>
+
       <section id="services" className="services-section">
         <div className="section-head"><div><div className="section-index">01 / WHAT WE DO</div><h2>Good products<br />deserve <em>great stories.</em></h2></div><p className="small-note">CONCEPT · STORY · MOTION<br />FROM FIRST BRIEF TO FINAL EXPORT</p></div>
         <div className="service-grid">
@@ -87,17 +99,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vertical-ads" className="ad-creatives-section">
-        <div className="section-head"><div><div className="section-index">03 / VERTICAL SOCIAL ADS</div><h2>Built for the<br /><em>vertical screen.</em></h2></div><p className="small-note">9:16 SOCIAL VIDEO<br />REELS · SHORTS · PAID ADS</p></div>
-        <div className="gallery-heading"><span>VERTICAL AD CREATIVES</span><span>9:16 / MOBILE FIRST</span></div>
-        <div className="ad-grid">
-          {adCreatives.map((film) => <article className="film-card ad-card" key={film.n}>
-            <div className="film-frame film-frame-vertical"><video src={film.src} controls playsInline preload="metadata" aria-label={film.title} /><span className="film-index">{film.n}</span></div>
-            <div className="film-meta"><div><span className="work-type">{film.category}</span><h3>{film.title}</h3></div><span className="film-arrow">↗</span></div>
-          </article>)}
-        </div>
-        <p className="work-disclaimer">Vertical creatives designed for mobile-first campaigns. Video playback depends on the portfolio assets being uploaded to the site.</p>
-      </section>
+
 
       <section className="booking-section">
         <div className="section-index">04 / LET’S WORK TOGETHER</div>
